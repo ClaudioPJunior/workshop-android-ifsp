@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="card_color">
+        <item name="colorCyan">#01579B</item>
+        <item name="colorMagenta">#EF5350</item>
+        <item name="colorYellow">#FBC02D </item>
+        <item name="colorOrange">#E65100 </item>
+        <item name="colorGreen">#689F38</item>
+        <item name="colorExtra">#004D40</item>
+    </string-array>
+</resources>

@@ -1,38 +1,77 @@
 package claudio.com.notes;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity{
+    NoteAdapter noteAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.btnAbrir);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
+        noteAdapter = new NoteAdapter(NoteActivity.noteList,this);
+        recyclerView.setAdapter(noteAdapter);
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Button button = findViewById(R.id.btnAbrir);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, NoteActivity.class);
                 startActivity(intent);
-
             }
         });
-
     }
 
+
     @Override
+    protected void onResume() {
+        super.onResume();
+        int size = NoteActivity.noteList.size();
+
+        Toast.makeText(this, "list size: " + size , Toast.LENGTH_SHORT).show();
+        noteAdapter.notifyDataSetChanged();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -52,5 +91,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

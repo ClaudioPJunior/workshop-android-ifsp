@@ -4,27 +4,20 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:text="Bem-Vindo ao Notes!"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_weight="8"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:gravity="center"
-        />
+        android:layout_height="wrap_content"/>
 
 
-    <TextView
-        android:text="Clique em Abrir para Começar!"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:gravity="center"
-        />
 
     <Button
+        android:layout_weight="1"
         android:id="@+id/btnAbrir"
         android:text="Abrir"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="center"/>
+
 </LinearLayout>
