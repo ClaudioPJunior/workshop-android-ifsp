@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
+<RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_weight="8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"/>
 
-
-
-    <Button
-        android:layout_weight="1"
-        android:id="@+id/btnAbrir"
-        android:text="Abrir"
+    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"/>
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_black_24dp"
+        android:id="@+id/btnAbrir"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>

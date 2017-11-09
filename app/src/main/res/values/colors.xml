@@ -11,4 +11,13 @@
     <color name="colorGreen">#689F38</color>
     <color name="colorExtra">#004D40</color>
 
+    <array name="card_colors">
+        <item>@color/colorCyan</item>
+        <item>@color/colorMagenta</item>
+        <item>@color/colorYellow</item>
+        <item>@color/colorOrange</item>
+        <item>@color/colorGreen</item>
+        <item>@color/colorExtra</item>
+    </array>
+
 </resources>

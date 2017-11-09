@@ -7,6 +7,12 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
+    <View
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@color/colorExtra"
+        android:id="@+id/viewColor"/>
+
 
     <EditText
         android:id="@+id/edt_texto"

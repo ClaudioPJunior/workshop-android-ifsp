@@ -1,7 +1,9 @@
 package claudio.com.notes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,17 +39,33 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Note note = notes.get(position);
+        final Note note = notes.get(position);
 
         holder.textViewTitle.setText(note.getTitle());
         holder.textViewDescription.setText(note.getDescription());
 
-        String[] stringArray = context.getResources().getStringArray(R.array.card_color);
 
-        Random random = new Random();
-        String color = stringArray[random.nextInt(5)];
 
-        holder.linear.setBackgroundColor(Color.parseColor(color));
+        holder.linear.setCardBackgroundColor(note.getColor());
+
+        holder.linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Open note;
+                Intent intent = new Intent(context, NoteActivity.class);
+                intent.putExtra("noteExtra",note);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.linear.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                notes.remove(note);
+                notifyDataSetChanged();
+                return false;
+            }
+        });
     }
 
     @Override
@@ -58,7 +76,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder> 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
         TextView textViewDescription;
-        LinearLayout linear;
+        CardView linear;
         public MyViewHolder(View itemView) {
             super(itemView);
 
